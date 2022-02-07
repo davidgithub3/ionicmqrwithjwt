@@ -1,0 +1,8 @@
+{
+  "name": "JWTAuth",
+  "integrations": {"cordova": {}},
+  "type": "angular",
+  "hooks": {
+    "build:after": "./attach-source-maps.js"
+  }
+}

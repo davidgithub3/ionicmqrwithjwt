@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar color ="primary">
+    <ion-title>
+      QR Scann App
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list class="ios list-ios hydrated">
+    <ion-list-header class="ios hydrated">
+      QR List
+    </ion-list-header>
+
+    <ion-item *ngFor="let song of Songs" class="item-label item ios in-list ion-focusable hydrated">
+      <ion-label class="sc-ion-label-ios-h sc-ion-label-ios-s ios hydrated">
+        <h2>{{song.song_name}}</h2>
+        <h3>{{song.artist}}</h3>
+      </ion-label>
+
+      <div class="item-note" item-end>
+        <button ion-button clear (click)="editSong(song)">
+          <ion-icon name="create" style="zoom:2.0"></ion-icon>
+        </button>
+        <button ion-button clear (click)="deleteSong(song)">
+          <ion-icon name="trash" style="zoom:2.0"></ion-icon>
+        </button>
+      </div>
+    </ion-item>
+  </ion-list>
+  <ion-button expand="full" (click)="logout()">Logout</ion-button>
+  <ion-button expand="full" (click)="clearToken()">Clear JWT</ion-button>
+
+  <!-- fab placed to the bottom start -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" >
+    <ion-fab-button color ="warning" (click)="addSong()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
+

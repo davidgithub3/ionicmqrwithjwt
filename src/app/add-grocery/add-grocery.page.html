@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar class="ios hydrated">
+    <ion-buttons slot="start">
+      <ion-button (click)="dismiss()">
+        <ion-icon name="arrow-back">
+        </ion-icon>  
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ios title-ios hydrated">Add Grocery</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-list lines="full" class="ion-no-margin ion-no-padding ios list-ios list-lines-full list-ios-lines-full hydrated">
+    <form [formGroup]="groceryForm" (ngSubmit)="onFormSubmit()">
+      <ion-item>
+        <ion-label position="floating">Grocery Name</ion-label>
+        <ion-input formControlName="item_name" type="text" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Manufacture</ion-label>
+        <ion-input formControlName="Manufacture" type="text" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-button slot="end" (click)="scanQRCode()"></ion-button>
+        <ion-label>Scan a QRCode to get the information</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Scan Format</ion-label>
+        <ion-input formControlName="qrformat" [(ngModel)]="qrformat" readonly></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Scan Information</ion-label>
+        <ion-input formControlName="qrvalue" [(ngModel)]="qrvalue" readonly></ion-input>
+      </ion-item>
+
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" color="primary" shape="full" expand="block">Add Song</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-list>
+</ion-content>
